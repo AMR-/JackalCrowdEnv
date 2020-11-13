@@ -1,8 +1,3 @@
-if __name__ == "__main__":
-    import sys
-
-    sys.path.append("../")
-
 import rospy
 import time
 import math
@@ -87,10 +82,9 @@ class CrowdENV(Env, HasActionObservationSpace):
                      + [1] * (num_timesteps * cells_per_occupancy_grid))
         )
         self.action_space_ = spaces.Discrete(self.observation_filter.number_of_actions)
-        print("DEBUG: action space, observation space")
-        print(self.action_space)
-        print(self.observation_space)
-        # print("crowdenv: {}".format(self.vel_expanded))
+        # print("DEBUG: action space, observation space")
+        # print(self.action_space)
+        # print(self.observation_space)
         self.trajectory = []
 
         self.position = None
@@ -257,10 +251,6 @@ class CrowdENV(Env, HasActionObservationSpace):
 
         obs, reward, done, info = self.get_observation()
 
-        # print("goal: {}; position: {}, collision:{}; terminate: {}; time_step_up:{}".format([self.goal[0], self.goal[1]],
-        #                                                                    [self.position.position.x, self.position.position.y],
-        #                                                                    self.terminatec, self.terminateg, self.terminates))
-
         self.trajectory.append([obs,
                                 action,
                                 reward,
@@ -293,65 +283,3 @@ class CrowdENV(Env, HasActionObservationSpace):
                                                                   yaw],
                                                      "total_oscillation": self.total_oscillations,
                                                      "lidar": self.scan_single}
-
-#
-# class TrajectoryGenerator:
-#     def __init__(self, iterations=50):
-#         self.env = CrowdENV(scenarios_index=10, max_steps=100)
-#         self.policy = NNModule(velocity_threshold=self.env.vel_threshold, path="./", continuous=False)
-#         self.iterations = iterations
-#
-#     def run(self, scenarios=range(0, 20, 1)):
-#         for i in scenarios:
-#             if i < 8:
-#                 self.env.max_steps = 300
-#             elif i < 10:
-#                 self.env.max_steps = 300
-#             elif i < 14:
-#                 self.env.max_steps = 400
-#             elif i < 18:
-#                 self.env.max_steps = 500
-#             else:
-#                 self.env.max_steps = 800
-#             self.get_trajectory(i)
-#
-#     def get_trajectory(self, scenario):
-#         # for i in range(steps):
-#         value = 0
-#         total_trajectories = []
-#
-#         obs, reward, done, _ = self.env.reset(scenario)
-#
-#         while (not rospy.is_shutdown()) and (value < self.iterations):
-#
-#             if done:
-#                 value += 1
-#                 total_trajectories.append(copy.deepcopy(self.env.trajectory))
-#                 print((self.env.terminateg, self.env.terminatec), end=" ")
-#                 obs, reward, done, _ = self.env.reset(scenario)
-#                 print("obs: {}, reward: {}, done: {} ".format(obs.shape, reward,
-#                                                               (self.env.terminateg, self.env.terminatec)))
-#
-#             action = self.policy.step(obs)
-#             obs, reward, done, _ = self.env.step(action)
-#             print("{},{},{}".format(self.env.step_size, reward, done))
-#
-#         np.save("trajectory_{}".format(scenario), np.asarray(total_trajectories))
-#
-#
-# def run_iterations():
-#     tg = TrajectoryGenerator(2)
-#     tg.run([17])
-#
-#
-# if __name__ == "__main__":
-#     rospy.init_node('robot', anonymous=True)
-#
-#     t1 = threading.Thread(target=rospy.spin)
-#     t2 = threading.Thread(target=run_iterations)
-#
-#     t1.start()
-#     t2.start()
-#
-#     t2.join()
-#     t1.join()
