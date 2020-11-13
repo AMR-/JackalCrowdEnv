@@ -212,45 +212,6 @@ class ObsFilter(object):
                 else:
                     return 5
 
-        # if vel[0] > self.vel_threshold[0][1] * 1. / 4.:
-        #     if vel[1] < -0.1:
-        #         if self.vel_expanded:
-        #             if vel[1] < self.vel_threshold[1][0] / 2.:
-        #                 return 0
-        #             else:
-        #                 return 6
-        #         else:
-        #             return 0
-        #     elif vel[1] > 0.1:
-        #         if self.vel_expanded:
-        #             if vel[1] > self.vel_threshold[1][1] / 2.:
-        #                 return 4
-        #             else:
-        #                 return 8
-        #         else:
-        #             return 4
-        #     else:
-        #         return 2
-        # else:
-        #     if vel[1] < -0.1:
-        #         if self.vel_expanded:
-        #             if vel[1] < self.vel_threshold[1][0] / 2.:
-        #                 return 1
-        #             else:
-        #                 return 7
-        #         else:
-        #             return 1
-        #     elif vel[1] > 0.1:
-        #         if self.vel_expanded:
-        #             if vel[1] > self.vel_threshold[1][1] / 2.:
-        #                 return 5
-        #             else:
-        #                 return 9
-        #         else:
-        #             return 5
-        #     else:
-        #         return 3
-
     def vel_2_simulator(self, data):
         filtered_data = self.velocity_unwrapper(data)
         filtered_data = np.array(filtered_data)
