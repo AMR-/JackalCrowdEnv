@@ -50,7 +50,8 @@ class NNModule:
         net = tl.layers.DenseLayer(net, n_units=256, act=tf.nn.relu, name='cnn_output_value')
         cnn_output = net.outputs
 
-        act_net = tl.layers.InputLayer(tf.concat([self.goal_ph, self.vel_ph, cnn_output], axis=1), name='nav_input_value')
+        act_net = tl.layers.InputLayer(tf.concat([self.goal_ph, self.vel_ph, cnn_output], axis=1),
+                                       name='nav_input_value')
         act_net = tl.layers.DenseLayer(act_net, n_units=128, act=tf.nn.relu, name='value')
         quality_net = tl.layers.DenseLayer(act_net, n_units=1, act=tf.nn.sigmoid, name='quality')
         quality = quality_net.outputs
@@ -108,10 +109,3 @@ class NNModule:
         final_action = self.observation_filter.velocity_wrapper(action)
 
         return final_action
-
-if __name__ == "__main__":
-    i=1
-    params = np.load('model/best_val_{}.npz'.format(i), encoding="latin1")['params']
-
-    print("test")
-
