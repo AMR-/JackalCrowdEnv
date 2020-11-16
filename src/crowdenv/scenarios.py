@@ -18,10 +18,17 @@ class Scenarios:
             2: self.empty_sf(2),
             3: self.empty_sb(2),
 
+<<<<<<< HEAD
+            4: self.empty_ur(10),  # empty with fixed start and goal locations
+            5: self.empty_dr(10),
+            6: self.empty_sf(10),
+            7: self.empty_sb(10),
+=======
             4: self.empty_ur(),  # empty with fixed start and goal locations
             5: self.empty_dr(),
             6: self.empty_sf(),
             7: self.empty_sb(),
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
 
             8: self.empty_rand_d(),
             9: self.empty_rand_u(),
@@ -30,6 +37,8 @@ class Scenarios:
 
             12: self.diomand_left(),
             13: self.diomand_right(),
+<<<<<<< HEAD
+=======
             14: self.barriers_d(),
             15: self.barriers_u(),
 
@@ -37,6 +46,7 @@ class Scenarios:
             17: self.static_obstacles_rand(),
             18: self.dynamic_l(),
             19: self.dynamic_r()
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
         }
         return scenarios[scenarios_index]
 
@@ -187,15 +197,26 @@ class Scenarios:
     def cross_right(self):
         #sx, sy, sa = -8., -9., np.pi / 2.
         sx, sy, sa = -9., -9, np.pi / 2.
+<<<<<<< HEAD
+        # gx, gy, ga = -8., -3., np.pi / 2.
+        gx, gy, ga = -6., -7., np.pi / 2.
+=======
         gx, gy, ga = -8., -3., np.pi / 2.
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
 
         self.starts = [sx, sy, sa]
         self.goals = [gx, gy, ga]
         return self.starts, self.goals
 
     def diomand_left(self):
+<<<<<<< HEAD
+        sx, sy, sa = -14., 5., -np.pi/2.
+        # gx, gy, ga = -12., 12., np.pi/2.
+        gx, gy, ga = -8., 12., np.pi/2.
+=======
         sx, sy, sa = -12., 5., np.pi/2.
         gx, gy, ga = -12., 12., np.pi/2.
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
 
         self.starts = [sx, sy, sa]
         self.goals = [gx, gy, ga]
@@ -209,6 +230,39 @@ class Scenarios:
         self.goals = [gx, gy, ga]
         return self.starts, self.goals
 
+<<<<<<< HEAD
+    # def barriers_d(self):
+    #     sx, sy, sa = -25, -10, np.pi
+    #     gx, gy, ga = -25, 0, 0.
+
+    #     self.starts = [sx, sy, sa]
+    #     self.goals = [gx, gy, ga]
+    #     return self.starts, self.goals
+
+    # def barriers_u(self):
+    #     sx, sy, sa = -22., 1., np.pi
+    #     gx, gy, ga = -22., 14.5, 0.
+
+    #     self.starts = [sx, sy, sa]
+    #     self.goals = [gx, gy, ga]
+    #     return self.starts, self.goals
+
+    # def dynamic_l(self):
+    #     sx, sy, sa = 13., 4., 0.
+    #     gx, gy, ga = 26., 5., 0.
+
+    #     self.starts = [sx, sy, sa]
+    #     self.goals = [gx, gy, ga]
+    #     return self.starts, self.goals
+
+    # def dynamic_r(self):
+    #     sx, sy, sa = 13., 11., 0.
+    #     gx, gy, ga = 26., 10., 0.
+
+    #     self.starts = [sx, sy, sa]
+    #     self.goals = [gx, gy, ga]
+    #     return self.starts, self.goals
+=======
     def barriers_d(self):
         sx, sy, sa = -25, -10, np.pi
         gx, gy, ga = -25, 0, 0.
@@ -240,3 +294,4 @@ class Scenarios:
         self.starts = [sx, sy, sa]
         self.goals = [gx, gy, ga]
         return self.starts, self.goals
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb

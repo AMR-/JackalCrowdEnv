@@ -50,8 +50,12 @@ class NNModule:
         net = tl.layers.DenseLayer(net, n_units=256, act=tf.nn.relu, name='cnn_output_value')
         cnn_output = net.outputs
 
+<<<<<<< HEAD
+        act_net = tl.layers.InputLayer(tf.concat([self.goal_ph, self.vel_ph, cnn_output], axis=1), name='nav_input_value')
+=======
         act_net = tl.layers.InputLayer(tf.concat([self.goal_ph, self.vel_ph, cnn_output], axis=1),
                                        name='nav_input_value')
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
         act_net = tl.layers.DenseLayer(act_net, n_units=128, act=tf.nn.relu, name='value')
         quality_net = tl.layers.DenseLayer(act_net, n_units=1, act=tf.nn.sigmoid, name='quality')
         quality = quality_net.outputs
@@ -59,10 +63,17 @@ class NNModule:
 
     def load(self, path):
         for i in range(len(self.model)):
+<<<<<<< HEAD
+            params = np.load(path+'model/best_act_{}.npz'.format(i), encoding="latin1", allow_pickle=True)['params']
+            tl.files.assign_params(self.sess, params, self.model[i])
+        for i in range(len(self.value)):
+            params = np.load(path + 'model/best_val_{}.npz'.format(i), encoding="latin1", allow_pickle=True)['params']
+=======
             params = np.load(path+'model/best_act_{}.npz'.format(i), encoding="latin1")['params']
             tl.files.assign_params(self.sess, params, self.model[i])
         for i in range(len(self.value)):
             params = np.load(path + 'model/best_val_{}.npz'.format(i), encoding="latin1")['params']
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
             tl.files.assign_params(self.sess, params, self.value[i])
 
     def predict_q(self, obs):
@@ -109,3 +120,13 @@ class NNModule:
         final_action = self.observation_filter.velocity_wrapper(action)
 
         return final_action
+<<<<<<< HEAD
+
+if __name__ == "__main__":
+    i=1
+    params = np.load('model/best_val_{}.npz'.format(i), encoding="latin1")['params']
+
+    print("test")
+
+=======
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb

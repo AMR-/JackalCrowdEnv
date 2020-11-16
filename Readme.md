@@ -88,22 +88,21 @@ Here is an explanation of each of the arguments of CrowdEnv:
 
 | # | Description |
 | :--- | :--- |
-| 0 | Empty env. TODO |
-| 1 | TODO |
-| 2 | TODO |
-| 3 | TODO |
-| 4 | TODO |
-| 5 | TODO |
-| 6 | TODO |
-| 7 | TODO |
-| 8 | TODO |
-| 9 | TODO |
-| 10 | TODO |
-| 11 | TODO |
-| 12 | TODO |
-| 13 | TODO |
+| 0 | Empty env. where goal is 2m up right side of robot  |
+| 1 | Empty env. where goal is 2m down right side of robot |
+| 2 | Empty env. where goal is 2m ahead robot |
+| 3 | Empty env. where goal is 2m on back of robot |
+| 4 | Empty env. where goal is 10m up right side of robot |
+| 5 | Empty env. where goal is 10m down right side of robot |
+| 6 | Empty env. where goal is 10m ahead robot |
+| 7 | Empty env. where goal is 10m on back of robot |
+| 8 | Empty env. in the down side area where goal and start locations are all random |
+| 9 | Empty env. in the up side area where goal and start locations are all random |
+| 10 | Cross shape obstacle in middle of the area, robot starts from left side of the obstacle |
+| 11 | Cross shape obstacle in middle of the area, robot starts from right side of the obstacle |
+| 12 | Diomand shape obstacle in middle of the area, robot starts from left side of the obstacle |
+| 13 | Diomand shape obstacle in middle of the area, robot starts from right side of the obstacle |
 
-TODO scenarios
 
 ## Action Spaces
 
@@ -129,6 +128,6 @@ Expanded Action Space:
 | 9 | Slightly Rotate Left |0| 0.5|
 
 ## State Space
-
-TODO
+content: | goal | velocity | Occupancy Grid of Lidar |
+size:    |   2  |     1    |          210            |
 <!-- goal, past, and polar grid with picture -->
