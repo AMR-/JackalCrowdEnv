@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 if __name__ == "__main__":
     import sys
 
     sys.path.append("../")
 
+=======
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
 import rospy
 import time
 import math
@@ -13,7 +16,11 @@ import numpy as np
 from abc import abstractmethod, ABC
 
 from gym import Env, spaces
+<<<<<<< HEAD
 from geometry_msgs.msg import Twist, Point, Pose
+=======
+from geometry_msgs.msg import Twist, Point
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
 from sensor_msgs.msg import LaserScan
 from nav_msgs.msg import Odometry
 from gazebo_msgs.msg import ModelStates, ModelState
@@ -22,7 +29,11 @@ from crowdenv.networks import NNModule
 from crowdenv.scenarios import Scenarios
 from crowdenv.sensor_converter import ObsFilter
 from crowdenv.oscillation_detector import OscillationDetect
+<<<<<<< HEAD
 from crowdenv.display import Visualization
+=======
+
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
 
 class TOPICS(object):
     def __init__(self):
@@ -52,7 +63,11 @@ class CrowdENV(Env, HasActionObservationSpace):
     def __init__(self,
                  scenarios_index=0,
                  collision_threshold=0.22,
+<<<<<<< HEAD
                  target_threshold=0.2,
+=======
+                 target_threshold=0.8,
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
                  step_time=0.1,
                  max_steps=500,
                  random_seed=1,
@@ -67,8 +82,11 @@ class CrowdENV(Env, HasActionObservationSpace):
         self.step_time = step_time
         self.max_steps = max_steps
 
+<<<<<<< HEAD
         self.display = Visualization(1)
 
+=======
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
         self.vel_threshold = ((0., 1.), (-1., 1.))
         self.vel_expanded = vel_expanded
 
@@ -89,10 +107,16 @@ class CrowdENV(Env, HasActionObservationSpace):
                      + [1] * (num_timesteps * cells_per_occupancy_grid))
         )
         self.action_space_ = spaces.Discrete(self.observation_filter.number_of_actions)
+<<<<<<< HEAD
         print("DEBUG: action space, observation space")
         print(self.action_space)
         print(self.observation_space)
         # print("crowdenv: {}".format(self.vel_expanded))
+=======
+        # print("DEBUG: action space, observation space")
+        # print(self.action_space)
+        # print(self.observation_space)
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
         self.trajectory = []
 
         self.position = None
@@ -147,7 +171,10 @@ class CrowdENV(Env, HasActionObservationSpace):
         self.step_size = 0
 
         self.total_oscillations = 0
+<<<<<<< HEAD
         self.display.reset()
+=======
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
 
         while (self.position is None) or (self.scan_single is None) or (self.velocity is None):
             pass
@@ -260,6 +287,7 @@ class CrowdENV(Env, HasActionObservationSpace):
 
         obs, reward, done, info = self.get_observation()
 
+<<<<<<< HEAD
         # print("goal: {}; position: {}, collision:{}; terminate: {}; time_step_up:{}".format([self.goal[0], self.goal[1]],
         #                                                                    [self.position.position.x, self.position.position.y],
         #                                                                    self.terminatec, self.terminateg, self.terminates))
@@ -268,6 +296,8 @@ class CrowdENV(Env, HasActionObservationSpace):
         goal_pose.position.x = self.goal[0]
         goal_pose.position.y = self.goal[1]
         self.display.display([self.position], [goal_pose], self.step_size)
+=======
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
         self.trajectory.append([obs,
                                 action,
                                 reward,
@@ -293,12 +323,17 @@ class CrowdENV(Env, HasActionObservationSpace):
                          self.position.orientation.x * self.position.orientation.x -
                          self.position.orientation.y * self.position.orientation.y -
                          self.position.orientation.z * self.position.orientation.z)
+<<<<<<< HEAD
+=======
+        print(yaw)
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
         return total, reward, self.get_terminate(), {"collision": self.terminatec,
                                                      "success": self.terminateg,
                                                      "position": [self.position.position.x, self.position.position.y,
                                                                   yaw],
                                                      "total_oscillation": self.total_oscillations,
                                                      "lidar": self.scan_single}
+<<<<<<< HEAD
 
 #
 # class TrajectoryGenerator:
@@ -361,3 +396,5 @@ class CrowdENV(Env, HasActionObservationSpace):
 #
 #     t2.join()
 #     t1.join()
+=======
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb

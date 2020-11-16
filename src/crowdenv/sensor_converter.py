@@ -166,7 +166,10 @@ class ObsFilter(object):
         return np.array(data)
 
     def velocity_wrapper(self, vel):
+<<<<<<< HEAD
         # print("rapper: {}".format(self.vel_expanded))
+=======
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
         angular_range = []
         linear_range = self.vel_threshold[0][1] * 1. / 3.
         if self.vel_expanded:
@@ -213,6 +216,7 @@ class ObsFilter(object):
                 else:
                     return 5
 
+<<<<<<< HEAD
         # if vel[0] > self.vel_threshold[0][1] * 1. / 4.:
         #     if vel[1] < -0.1:
         #         if self.vel_expanded:
@@ -252,13 +256,18 @@ class ObsFilter(object):
         #     else:
         #         return 3
 
+=======
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
     def vel_2_simulator(self, data):
         filtered_data = self.velocity_unwrapper(data)
         filtered_data = np.array(filtered_data)
         return filtered_data
 
     def velocity_unwrapper(self, number):
+<<<<<<< HEAD
         # print("unwrapper: {}".format(self.vel_expanded))
+=======
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
         if not self.vel_expanded and number > 5:
             raise ValueError("Not using expanded action space, but received action larger than 5")
         action = [
@@ -270,11 +279,14 @@ class ObsFilter(object):
             [self.vel_threshold[0][1], self.vel_threshold[1][1]],        # 4 (1,   1)
             [self.vel_threshold[0][0], self.vel_threshold[1][1]],        # 5 (0,   1)
             # Expanded Action Space (for oscillation fix)
+<<<<<<< HEAD
 
             # [self.vel_threshold[0][1], self.vel_threshold[1][0] * 0.5],  # 6 (1,  -0.5)
             # [self.vel_threshold[0][0], self.vel_threshold[1][0] * 0.5],  # 7 (0,  -0.5)
             # [self.vel_threshold[0][1], self.vel_threshold[1][1] * 0.5],  # 8 (1,   0.5)
             # [self.vel_threshold[0][0], self.vel_threshold[1][1] * 0.5]   # 9 (0,   0.5)
+=======
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
             [self.vel_threshold[0][1] * 0.5, self.vel_threshold[1][0] * 0.5],  # 6 (0.5,  -0.5)
             [self.vel_threshold[0][0] * 0.5, self.vel_threshold[1][0] * 0.5],  # 7 (0,  -0.5)
             [self.vel_threshold[0][1] * 0.5, self.vel_threshold[1][1] * 0.5],  # 8 (0.5,   0.5)

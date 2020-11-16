@@ -8,6 +8,10 @@ class OscillationDetect:
     def reset(self):
         self.velocities.clear()
 
+<<<<<<< HEAD
+=======
+    # noinspection PyMethodMayBeStatic
+>>>>>>> 25ad69f87fc0158bde48b4eddcbe599de49c5edb
     def convert(self, vel: int):
         if vel == 0 or vel == 1:
             return -1
