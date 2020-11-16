@@ -129,5 +129,6 @@ Expanded Action Space:
 
 ## State Space
 content: | goal | velocity | Occupancy Grid of Lidar |
+
 size:    |   2  |     1    |          210            |
 <!-- goal, past, and polar grid with picture -->
