@@ -1,6 +1,4 @@
 
-NOTE: THIS REPO IS slightly under construction
-
 This repository contains <!-- a few things -->
 
 * JackalCrowdEnv, an OpenAI gym style environment for running navigation tasks with the Jackal robot in Gazebo and ROS
