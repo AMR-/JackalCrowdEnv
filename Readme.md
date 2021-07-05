@@ -133,7 +133,7 @@ size:    |   2  |     1    |          210            |
 
 # Credits
 
-These environments were created by Aaron M. Roth and Jing Liang.  To cite this please cite our paper "[https://arxiv.org/abs/2104.10818 XAI-N: Sensor-based Robot Navigation using Expert Policies and Decision Trees]."
+These environments were created by Aaron M. Roth and Jing Liang.  To cite this please cite our paper "(XAI-N: Sensor-based Robot Navigation using Expert Policies and Decision Trees)[https://arxiv.org/abs/2104.10818]."
 
 ```
 @inproceedings{roth2021xain,
