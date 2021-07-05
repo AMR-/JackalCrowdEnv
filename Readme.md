@@ -130,3 +130,17 @@ content: | goal | velocity | Occupancy Grid of Lidar |
 
 size:    |   2  |     1    |          210            |
 <!-- goal, past, and polar grid with picture -->
+
+# Credits
+
+These environments were created by Aaron M. Roth and Jing Liang.  To cite this please cite out paper "XAI-N: Sensor-based Robot Navigation using Expert Policies and Decision Trees."
+
+```
+@inproceedings{roth2021xain,
+  title={XAI-N: Sensor-based Robot Navigation using Expert Policies and Decision Trees},
+  author={Roth, Aaron M. and Liang, Jing and Manocha, Dinesh},
+  booktitle={2021 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year={2021},
+  organization={IEEE}
+}
+```
